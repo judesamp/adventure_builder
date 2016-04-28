@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Scene, type: :model do
+RSpec.describe Choice, type: :model do
 
   it 'has a valid factory' do
-    expect(FactoryGirl.build(:scene)).to be_valid
+    expect(FactoryGirl.build(:choice)).to be_valid
   end
 
   # Database
@@ -21,13 +21,13 @@ RSpec.describe Scene, type: :model do
 
   describe "associations", :associations => true do
 
-    describe "adventure" do
-      it { should belong_to(:adventure) }
+    describe "scene" do
+      it { should belong_to(:scene) }
     end
 
-    # describe "choice" do
-    #   it { should belong_to(:choice) }
-    # end
+    describe "scene" do
+      it { should have_one(:next_scene) }
+    end
 
   end
 

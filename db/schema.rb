@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428032409) do
+ActiveRecord::Schema.define(version: 20160428150133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,22 @@ ActiveRecord::Schema.define(version: 20160428032409) do
     t.integer  "user_id"
   end
 
+  create_table "choices", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "scene_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "next_scene_id"
+  end
+
+  add_index "choices", ["scene_id"], name: "index_choices_on_scene_id", using: :btree
+
   create_table "scenes", force: :cascade do |t|
     t.text     "content"
     t.integer  "adventure_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "choice_id"
   end
 
   add_index "scenes", ["adventure_id"], name: "index_scenes_on_adventure_id", using: :btree
@@ -51,5 +62,6 @@ ActiveRecord::Schema.define(version: 20160428032409) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "choices", "scenes"
   add_foreign_key "scenes", "adventures"
 end

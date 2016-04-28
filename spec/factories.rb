@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :choice do
+    content "MyText"
+    scene nil
+  end
   factory :scene do
     content "MyText"
     adventure nil
