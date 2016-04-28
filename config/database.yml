@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: adventure_builder_development
+
+test:
+  <<: *default
+  database: adventure_builder_test
+
+production:
+  <<: *default
+  database: adventure_builder_production
+  username: adventure_builder
+  password: <%= ENV['ADVENTURE_BUILDER_DATABASE_PASSWORD'] %>
