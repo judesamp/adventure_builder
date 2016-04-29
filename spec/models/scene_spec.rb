@@ -25,9 +25,9 @@ RSpec.describe Scene, type: :model do
       it { should belong_to(:adventure) }
     end
 
-    # describe "choice" do
-    #   it { should belong_to(:choice) }
-    # end
+    describe "choice" do
+      it { should have_many(:choices) }
+    end
 
   end
 
