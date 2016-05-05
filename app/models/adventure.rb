@@ -4,4 +4,6 @@ class Adventure < ActiveRecord::Base
 
   default_scope { order("created_at desc") }
   scope :published, -> { where(published: true) }
+
+  validates_presence_of :title
 end

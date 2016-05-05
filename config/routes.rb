@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :adventures, only: [ :index, :new, :show ]
+  resources :adventures, only: [ :index, :new, :show, :create ]
 
 end

@@ -23,6 +23,7 @@ group :development, :test do
   gem 'shoulda-callback-matchers', '~> 1.0'
   gem 'rspec-its'
   gem 'rspec-mocks'
+  gem 'faker'
 end
 
 group :development do

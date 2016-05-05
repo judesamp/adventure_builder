@@ -63,4 +63,52 @@ RSpec.describe AdventuresController, type: :controller do
 
   end
 
+  describe "POST #create" do
+
+    context 'valid adventure' do
+
+      let(:adventure_attrs) { { adventure: FactoryGirl.attributes_for(:adventure) }  }
+
+      it "returns http success" do
+        post :create, adventure_attrs
+        expect(response).to have_http_status(:redirect)
+      end
+
+      it "renders the index template" do
+        post :create, adventure_attrs
+        expect(response).to redirect_to Adventure.last
+      end
+
+      it "creates an adventure" do
+        expect {
+          post :create, adventure_attrs
+        }.to change(Adventure, :count).by(1)
+      end
+
+    end
+
+    context 'invalid adventure' do
+
+      let(:invalid_adventure_attrs) { { adventure: FactoryGirl.attributes_for(:adventure, title: nil) }  }
+
+      it "returns http success" do
+        post :create, invalid_adventure_attrs
+        expect(response).to have_http_status(:success)
+      end
+
+      it "renders the index template" do
+        post :create, invalid_adventure_attrs
+        expect(response).to render_template :new
+      end
+
+      it "creates an adventure" do
+        expect {
+          post :create, invalid_adventure_attrs
+        }.to change(Adventure, :count).by(0)
+      end
+
+    end
+
+  end
+
 end

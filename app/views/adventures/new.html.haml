@@ -1,0 +1,12 @@
+.container.top-page-margin
+  .row
+    .col-sm-8.col-sm-offset-2
+      .card.card-block
+        %h4.card-title Create Adventure
+        %p.card-text
+          = simple_form_for @adventure do |f|
+            = f.input :title, placeholder: 'Enter Title'
+            = f.input :author, placeholder: "Enter Author's Name"
+            = f.input :description, placeholder: 'Enter Adventure Description', as: :text, :input_html => {:rows => 6}
+            = f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id }
+            = f.button :submit, class: 'form-control btn btn-success'

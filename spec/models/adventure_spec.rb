@@ -48,6 +48,16 @@ RSpec.describe Adventure, type: :model do
 
   end
 
+  # Validations
+  #----------------------------------------------------------------------------
+  describe "validations" do
+
+    it 'validates seller email' do
+      expect(FactoryGirl.build(:adventure, title: nil)).to_not be_valid
+    end
+
+  end
+
   # scopes
   #----------------------------------------------------------------------------
   describe 'scopes' do

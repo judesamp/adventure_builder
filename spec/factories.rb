@@ -1,23 +1,25 @@
 FactoryGirl.define do
 
   factory :choice do
-    content "MyText"
+    content Faker::Lorem.word
     scene nil
   end
 
   factory :scene do
-    content "MyText"
+    content Faker::Lorem.word
     adventure nil
   end
 
   factory :adventure do
-    title "Adventure Title"
-    author "Adventure Author"
+    title Faker::Lorem.sentence(2)
+    author Faker::Name.name
+    description Faker::Lorem.paragraph
   end
 
   factory :published_adventure do
-    title "Adventure Title"
-    author "Adventure Author"
+    title Faker::Lorem.sentence(2)
+    author Faker::Name.name
+    description Faker::Lorem.paragraph
     published true
   end
 

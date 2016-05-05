@@ -21,8 +21,9 @@
     %nav.navbar.navbar-static-top.navbar-dark.bg-inverse
       %a.navbar-brand{:href => "/"} AdventureBuilder
       %ul.nav.navbar-nav
-        -# %li.nav-item
-        -#   %a.nav-link{:href => "#"} About
+        - if current_user
+          %li.nav-item
+            = link_to "My Adventures", adventures_path, class: 'nav-link'
         -# %li.nav-item
         -#   %a.nav-link{:href => "#"} Contact
         %li.nav-item
@@ -33,7 +34,8 @@
 
     %hr/
     %footer
-      %p © Company 2015
+      .container
+        %p.text-xs-right © Jeremy Samples 2016
     / /container
     /
       Bootstrap core JavaScript
