@@ -1,10 +1,44 @@
 !!!
-%html
+%html{:lang => "en"}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title AdventureBuilder
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    / The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "../../favicon.ico", :rel => "icon"}/
+    / Bootstrap core CSS
+    %link{:href => "../../dist/css/bootstrap.min.css", :rel => "stylesheet"}/
+    / Custom styles for this template
+    %link{:href => "jumbotron.css", :rel => "stylesheet"}/
   %body
+    %nav.navbar.navbar-static-top.navbar-dark.bg-inverse
+      %a.navbar-brand{:href => "/"} AdventureBuilder
+      %ul.nav.navbar-nav
+        -# %li.nav-item
+        -#   %a.nav-link{:href => "#"} About
+        -# %li.nav-item
+        -#   %a.nav-link{:href => "#"} Contact
+        %li.nav-item
+          %a.nav-link{:href => "/users/sign_in"} Login
+    / Main jumbotron for a primary marketing message or call to action
+
     = yield
+
+    %hr/
+    %footer
+      %p © Company 2015
+    / /container
+    /
+      Bootstrap core JavaScript
+    / IE10 viewport hack for Surface/desktop Windows 8 bug
+    %script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}
+
+
+

@@ -15,6 +15,12 @@ FactoryGirl.define do
     author "Adventure Author"
   end
 
+  factory :published_adventure do
+    title "Adventure Title"
+    author "Adventure Author"
+    published true
+  end
+
   factory :user do
     sequence(:email) {|n| "storm.trooper.#{n}@factory.com" }
     password "password"

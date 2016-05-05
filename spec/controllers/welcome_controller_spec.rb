@@ -8,6 +8,13 @@ RSpec.describe WelcomeController, type: :controller do
       get :index
       expect(response).to have_http_status(:success)
     end
+
+    it "returns http success" do
+      published_adventures = FactoryGirl.create_list(:adventure, 3, published: true)
+      unpublished_adventures = FactoryGirl.create_list(:adventure, 3)
+      get :index
+      expect(assigns(:adventures)).to match_array published_adventures
+    end
   end
 
 end

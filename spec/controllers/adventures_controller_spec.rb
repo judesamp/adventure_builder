@@ -43,4 +43,24 @@ RSpec.describe AdventuresController, type: :controller do
 
   end
 
+  describe "GET #show" do
+    let(:adventure) { FactoryGirl.create(:adventure) }
+
+    it "returns http success" do
+      get :show, id: adventure
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders the show template" do
+      get :show, id: adventure
+      expect(response).to render_template :show
+    end
+
+    it "assigns the specified adventure to @adventure" do
+      get :show, id: adventure
+      expect(assigns(:adventure)).to eq adventure
+    end
+
+  end
+
 end
