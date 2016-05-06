@@ -5,6 +5,7 @@
       = f.input :content, placeholder: 'Enter Scene Content Here', as: :text, :input_html => { :rows => 20 }
       = f.input :adventure_id, :as => :hidden
       = f.fields_for :choices do |choice_form|
+        = choice_form.link_to_remove "Remove this choice", class: 'float-it-right'
         = choice_form.input :content
       %p= f.link_to_add "Add a choice", :choices
       = f.button :submit, class: 'form-control btn btn-success'
