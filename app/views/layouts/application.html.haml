@@ -24,10 +24,11 @@
         - if current_user
           %li.nav-item
             = link_to "My Adventures", adventures_path, class: 'nav-link'
-        -# %li.nav-item
-        -#   %a.nav-link{:href => "#"} Contact
-        %li.nav-item
-          %a.nav-link{:href => "/users/sign_in"} Login
+          %li.nav-item
+            = link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link'
+        - else
+          %li.nav-item
+            %a.nav-link{:href => "/users/sign_in"} Login
     / Main jumbotron for a primary marketing message or call to action
 
     = yield
@@ -36,11 +37,3 @@
     %footer
       .container
         %p.text-xs-right © Jeremy Samples 2016
-    / /container
-    /
-      Bootstrap core JavaScript
-    / IE10 viewport hack for Surface/desktop Windows 8 bug
-    %script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}
-
-
-

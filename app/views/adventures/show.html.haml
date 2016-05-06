@@ -1,4 +1,9 @@
-.container
+.container.top-page-margin
   .row
     %h1= @adventure.title
     %p= @adventure.author
+    %p= adventure_description(@adventure)
+
+
+
+    = render @adventure.scenes

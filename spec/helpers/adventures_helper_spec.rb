@@ -1,15 +1,23 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the AdventuresHelper. For example:
-#
-# describe AdventuresHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe AdventuresHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+Spec.describe AdventuresHelper, type: :helper do
+
+  describe '#adventure_description' do
+
+    context 'description is nil' do 
+
+      it 'returns a string informing user that no description exists if no description is present' do
+        adventure = double("adventure", :description => nil)
+        expect(helper.adventure_description(adventure)).to eq "There is no description available for this adventure."
+      end
+
+    end
+
+    it 'returns the value of the description if description is not nil' do
+      adventure = double("adventure", :description => 'not nil description')
+      expect(helper.adventure_description(adventure)).to eq "not nil description"
+    end
+
+  end
+
 end
