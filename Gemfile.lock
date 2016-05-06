@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ryanb/nested_form.git
+  revision: 1b0689dfb4d230ceabd278eba159fcb02f23c68a
+  specs:
+    nested_form (0.3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -214,6 +220,7 @@ DEPENDENCIES
   faker
   haml-rails (~> 0.9)
   jquery-rails
+  nested_form!
   pg (~> 0.15)
   rails (= 4.2.6)
   rspec
@@ -230,4 +237,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.11.2
+   1.12.2

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Spec.describe AdventuresHelper, type: :helper do
+RSpec.describe AdventuresHelper, type: :helper do
 
   describe '#adventure_description' do
 

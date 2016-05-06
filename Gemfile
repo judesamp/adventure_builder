@@ -12,6 +12,7 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'devise'
 gem 'simple_form'
 gem "haml-rails", "~> 0.9"
+gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

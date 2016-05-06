@@ -3,7 +3,7 @@
     %h1= @adventure.title
     %p= @adventure.author
     %p= adventure_description(@adventure)
-
-
-
-    = render @adventure.scenes
+    %hr
+    %h2.inline-heading Scenes
+    = link_to 'Add New Scene', new_scene_path( adventure_id: @adventure.id ), class: 'btn btn-primary'
+    = render(:partial => 'scenes/scene', :collection => @adventure.scenes) || content_tag( :p, 'This adventure has no scenes yet.')
